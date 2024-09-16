@@ -22,4 +22,15 @@ strict = true
 
 [tool.ruff.lint]
 select = ["ALL"]
-ignore = ["D", "ANN", "TRY", "EM", "FA", "SIM108", "S101", "RET505", "TCH002"]
+ignore = [
+  "D",
+  "ANN",
+  "TRY",
+  "EM",
+  "FA",
+  "SIM108",
+  "S101",
+  "RET505",
+  "TCH002",
+  "T201",   # print
+]
