@@ -1,12 +1,10 @@
 # mypy: disable-error-code="no-any-return"
 
-from datetime import datetime, timedelta, timezone
+from datetime import date, timedelta
 from typing import Any
 
-JST = timezone(timedelta(hours=9))
 
-
-def calculate_start_deadline(task: dict[str, Any]) -> datetime:
+def calculate_start_deadline(task: dict[str, Any]) -> date:
     due_date = task["due_date"]
     estimated_days = task["estimated_days"]
     return due_date - timedelta(days=estimated_days)
@@ -15,7 +13,7 @@ def calculate_start_deadline(task: dict[str, Any]) -> datetime:
 def main() -> None:
     task = {
         "title": "スライドの作成",
-        "due_date": datetime(2024, 9, 19, tzinfo=JST),
+        "due_date": date(2024, 9, 19),
         "estimated_days": 7,
     }
     start_deadline = calculate_start_deadline(task)

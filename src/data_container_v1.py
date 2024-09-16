@@ -1,9 +1,7 @@
 # mypy: disable-error-code="no-untyped-def"
 
 
-from datetime import datetime, timedelta, timezone
-
-JST = timezone(timedelta(hours=9))
+from datetime import date, timedelta
 
 
 def calculate_start_deadline(task):
@@ -15,7 +13,7 @@ def calculate_start_deadline(task):
 def main() -> None:
     task = {
         "title": "スライドの作成",
-        "due_date": datetime(2024, 9, 19, tzinfo=JST),
+        "due_date": date(2024, 9, 19),
         "estimated_days": 7,
     }
     start_deadline = calculate_start_deadline(task)
