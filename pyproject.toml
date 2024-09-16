@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "python-project-template"
+name = "python-class-examples"
 version = "0.1.0"
 description = ""
 authors = ["Yuki Oshima <39944763+os1ma@users.noreply.github.com>"]

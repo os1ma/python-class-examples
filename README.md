@@ -1,1 +1,1 @@
-# python-project-template
+# python-class-examples
