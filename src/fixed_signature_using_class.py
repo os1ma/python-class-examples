@@ -7,7 +7,7 @@ def load_filtered_numbers(filter_func: Callable[[int], bool]) -> list[int]:
     return list(filter(filter_func, numbers))
 
 
-# 特定の入出力型の関数の挙動を変えるために、クラスを使用できます
+# 特定の入出力型の関数の挙動を変えるのに、クラスを使う例
 class DivisibleFilter:
     def __init__(self, divisor: int):
         self.divisor = divisor
