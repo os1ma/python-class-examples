@@ -1,27 +1,27 @@
-from abc import ABC, abstractmethod
+from dotenv import load_dotenv
+from openai import OpenAI
+
+load_dotenv(override=True)
 
 
-class BaseLLM(ABC):
-    @abstractmethod
-    def predict(self, prompt: str) -> str:
-        pass
+def predict(prompt: str) -> str | None:
+    client = OpenAI()
+    completion = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[{"role": "user", "content": prompt}],
+    )
+    return completion.choices[0].message.content
 
 
-class OpenAILLM(BaseLLM):
-    def __init__(self, api_key: str, model_name: str) -> None:
-        self.api_key = api_key
-        self.model_name = model_name
-
-    def predict(self, prompt: str) -> str:
-        # 実際にはここでAPIを呼び出す
-        return "OpenAIの言語モデルが返したテキスト"
+def chat(user_input: str) -> str | None:
+    # 実際にはこのあたりでもっと色々処理する
+    return predict(user_input)
 
 
-class AnthropicLLM(BaseLLM):
-    def __init__(self, api_key: str, model_name: str) -> None:
-        self.api_key = api_key
-        self.model_name = model_name
+def main() -> None:
+    response = chat(user_input="こんにちは")
+    print(response)
 
-    def predict(self, prompt: str) -> str:
-        # 実際にはここでAPIを呼び出す
-        return "Anthropicの言語モデルが返したテキスト"
+
+if __name__ == "__main__":
+    main()
