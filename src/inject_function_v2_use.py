@@ -1,4 +1,4 @@
-from src.polymorphism_v1 import BaseLLM, OpenAILLM
+from src.inject_function_v1 import BaseLLM, OpenAILLM
 
 
 class MySuperChatApplication:

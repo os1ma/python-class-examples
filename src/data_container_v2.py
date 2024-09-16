@@ -1,3 +1,5 @@
+# mypy: disable-error-code="no-any-return"
+
 from datetime import datetime, timedelta, timezone
 from typing import Any
 
