@@ -1,6 +1,5 @@
 # mypy: disable-error-code="no-untyped-def"
 
-
 from datetime import date, timedelta
 
 

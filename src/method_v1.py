@@ -1,3 +1,5 @@
+# mypy: disable-error-code="empty-body"
+
 from datetime import datetime
 
 
@@ -10,16 +12,19 @@ class Task:
 
 def get_task(api_key: str, task_id: int) -> Task:
     # 実際にはAPIを呼び出してデータを取得する
-    raise NotImplementedError
+    ...
 
 
 def post_task(api_key: str, task: Task) -> None:
-    raise NotImplementedError
+    # 実際にはAPIを呼び出してデータを登録する
+    ...
 
 
 def put_task(api_key: str, task_id: int, task: Task) -> None:
-    raise NotImplementedError
+    # 実際にはAPIを呼び出してデータを更新する
+    ...
 
 
 def delete_task(api_key: str, task_id: int) -> None:
-    raise NotImplementedError
+    # 実際にはAPIを呼び出してデータを削除する
+    ...
