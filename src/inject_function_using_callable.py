@@ -1,3 +1,5 @@
+# mypy: disable-error-code="union-attr"
+
 from typing import Callable
 
 from anthropic import Anthropic
@@ -5,11 +7,6 @@ from dotenv import load_dotenv
 from openai import OpenAI
 
 load_dotenv(override=True)
-
-
-def chat(predict_func: Callable[[str], str | None], user_input: str) -> str | None:
-    # 実際にはこのあたりでもっと色々処理する
-    return predict_func(user_input)
 
 
 def predict_by_openai(prompt: str) -> str | None:
@@ -29,6 +26,11 @@ def predict_by_anthropic(prompt: str) -> str | None:
         messages=[{"role": "user", "content": prompt}],
     )
     return message.content[0].text
+
+
+def chat(predict_func: Callable[[str], str | None], user_input: str) -> str | None:
+    # 実際にはこのあたりでもっと色々処理する
+    return predict_func(user_input)
 
 
 def main() -> None:

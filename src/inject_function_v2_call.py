@@ -15,7 +15,7 @@ def main() -> None:
     response = chat(llm=openai_llm, user_input="こんにちは")
     print(response)
 
-    anthropic_llm = AnthropicLLM(model_name="claude-3-haiku-20240307")
+    anthropic_llm = AnthropicLLM(model_name="claude-3-haiku-20240307", max_tokens=100)
     response = chat(llm=anthropic_llm, user_input="こんにちは")
     print(response)
 

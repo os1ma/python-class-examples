@@ -20,7 +20,7 @@ def main() -> None:
     response = app.chat("こんにちは")
     print(response)
 
-    anthropic_llm = AnthropicLLM(model_name="claude-3-haiku-20240307")
+    anthropic_llm = AnthropicLLM(model_name="claude-3-haiku-20240307", max_tokens=100)
     app = MySuperChatApplication(llm=anthropic_llm)
     response = app.chat("こんにちは")
     print(response)

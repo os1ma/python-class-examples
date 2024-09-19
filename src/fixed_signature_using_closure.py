@@ -7,7 +7,7 @@ def load_filtered_numbers(filter_func: Callable[[int], bool]) -> list[int]:
     return list(filter(filter_func, numbers))
 
 
-# 特定の入出力型の関数の挙動を変えるのに、クロージャを使う例
+# 特定の入出力型の関数の挙動を可変にするため、クロージャを使う例
 def build_filter_func(divisor: int) -> Callable[[int], bool]:
     def filter_func(item: int) -> bool:
         return item % divisor == 0

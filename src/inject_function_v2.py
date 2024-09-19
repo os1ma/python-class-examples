@@ -1,3 +1,5 @@
+# mypy: disable-error-code="union-attr"
+
 from abc import ABC, abstractmethod
 
 from anthropic import Anthropic
@@ -24,14 +26,15 @@ class OpenAILLM(BaseLLM):
 
 
 class AnthropicLLM(BaseLLM):
-    def __init__(self, model_name: str) -> None:
+    def __init__(self, model_name: str, max_tokens: int) -> None:
         self.model_name = model_name
+        self.max_tokens = max_tokens
 
     def predict(self, prompt: str) -> str:
         client = Anthropic()
         message = client.messages.create(
             model=self.model_name,
-            max_tokens=100,
+            max_tokens=self.max_tokens,
             messages=[{"role": "user", "content": prompt}],
         )
         return message.content[0].text
